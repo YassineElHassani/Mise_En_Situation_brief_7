@@ -1,0 +1,21 @@
+CREATE DATABASE user_role;
+
+USE user_role;
+CREATE TABLE role(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+USE user_role;
+CREATE TABLE userInfo(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    roleID INT NOT NULL
+);
+
+ALTER TABLE userInfo 
+ADD CONSTRAINT fk_userID FOREIGN KEY (roleID) REFERENCES role(ID);
+
+INSERT INTO role(name)
+VALUES ('User'),('Admin');
