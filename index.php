@@ -44,11 +44,11 @@ include 'db_conn.php';
                 if($result->num_rows > 0) {
                     $row = [];
                     while ($row = $result->fetch_assoc()) {
-                        $data[] = $row;
+                        echo "<option value='$row[ID]'>$row[name]</option>";
                     }
                 }
             ?>
-            <option value="<?php $row['ID'] ?>"><?php $row['name'] ?></option>
+            
         </select>
         <button type="submit" style="background-color: #FFF; height: 30px; width: 100pw; color: black; ">Register</button>
     </form>
